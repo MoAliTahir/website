@@ -1,8 +1,27 @@
 {% extends 'stackhome/base.html' %}
 
+{% block title %}
+    Stackhome . Detail
+{% endblock %}
 {% block container %}
     <div class="starter-template">
     <h1>Detail Page</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <br><br>
+    <h3>{{ apartment.address }}</h3><br>
+    <ul>
+        <li>{% if apartment.available %}
+            available
+            {% else %}
+            Not Available
+            {% endif %}
+        </li>
+        <li><b>bathroom : </b>{{ apartment.bathroom }}</li>
+        <li><b>bedrooms : </b>{{ apartment.bedrooms }}</li>
+        <li><b>description : </b>{{ apartment.description }}</li>
+        <li><b>features : </b>{{ apartment.features }}</li>
+        <li><b>living_rom : </b>{{ apartment.living_rom }}</li>
+        <li><b>price : </b>{{ apartment.price }}</li>
+        <li><b>equipped : </b>{{ apartment.equipped }}</li>
+    </ul>
   </div>
 {% endblock %}

@@ -1,8 +1,33 @@
 {% extends 'stackhome/base.html' %}
-
+{% block title %}
+    Stackhome . Home
+{% endblock %}
 {% block container %}
     <div class="starter-template">
         <h1>Home Page</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+
+    <div class="row">
+        {% for apartment in apartments %}
+            <div class="col-md-4">
+                <ul>
+                    <li>{% if apartment.available %}
+                        available
+                        {% else %}
+                        Not Available
+                        {% endif %}
+                    </li>
+                    <li><b>bathroom</b>{{ apartment.bathroom }}</li>
+                    <li><b>bedrooms</b>{{ apartment.bedrooms }}</li>
+                    <li><b>description</b>{{ apartment.description }}</li>
+                    <li><b>features</b>{{ apartment.features }}</li>
+                    <li><b>living_rom</b>{{ apartment.living_rom }}</li>
+                    <li><b>price</b>{{ apartment.price }}</li>
+                    <li><b>equipped</b>{{ apartment.equipped }}</li>
+                </ul>
+                <a class="btn btn-dark" href="{% url 'stackhome:detail' apartment.id %}">See more</a>
+            </div>
+        {% endfor %}
+
+    </div>
     </div>
 {% endblock %}

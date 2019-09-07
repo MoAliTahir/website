@@ -17,8 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 from stackhome import views
 
+
 urlpatterns = [
-    path('', views.index, name='home'),
+    path('', views.IndexView.as_view(), name='home'),
     path('admin/', admin.site.urls),
     path('stackhome/', include('stackhome.urls'))
 ]
